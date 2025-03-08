@@ -53,3 +53,8 @@ jspm_packages/
 
 # Aider AI Chat
 .aider*
+
+.yarn
+frontend/.yarn
+frappe_straw_demo/public
+frappe_straw_demo/www
