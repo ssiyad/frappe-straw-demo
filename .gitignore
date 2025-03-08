@@ -58,3 +58,4 @@ jspm_packages/
 frontend/.yarn
 frappe_straw_demo/public
 frappe_straw_demo/www
+frontend/src/routeTree.gen.ts
