@@ -1,5 +1,5 @@
-function App() {
-  return 'foobar';
-}
+import './App.css';
 
-export default App;
+export const App = () => {
+  return <div>foobar</div>;
+};
