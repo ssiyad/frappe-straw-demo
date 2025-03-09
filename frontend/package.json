@@ -11,16 +11,23 @@
     "copy-html-entry": "cp ../frappe_straw_demo/public/frontend/index.html ../frappe_straw_demo/www/straw-demo.html"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.2",
     "@tanstack/react-router": "^1.114.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "frappe-straw": "^0.3.2",
+    "lucide-react": "^0.479.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@tailwindcss/vite": "^4.0.12",
     "@tanstack/router-devtools": "^1.114.1",
     "@tanstack/router-plugin": "^1.114.1",
+    "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",

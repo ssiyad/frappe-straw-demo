@@ -2,8 +2,8 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { Straw } from 'frappe-straw';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './main.css';
 import { routeTree } from './routeTree.gen.ts';
+import './styles/main.css';
 
 // Create router instance.
 const router = createRouter({ routeTree });
