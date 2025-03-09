@@ -6,7 +6,9 @@ export const Route = createRootRoute({
     return (
       <React.Fragment>
         <Header />
-        <Outlet />
+        <div className="p-8">
+          <Outlet />
+        </div>
       </React.Fragment>
     );
   },
