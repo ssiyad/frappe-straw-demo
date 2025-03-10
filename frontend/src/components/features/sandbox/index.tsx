@@ -6,12 +6,14 @@ export const Sandbox = ({
   description,
   exampleCode,
   response,
+  error,
   children,
 }: PropsWithChildren<{
   title: string;
   description: string;
   exampleCode: string;
   response?: Record<any, any>;
+  error: Error | null;
 }>) => (
   <div className="grid h-full w-full grid-cols-3">
     <div className="col-span-2 flex items-center justify-center">
@@ -22,6 +24,7 @@ export const Sandbox = ({
       description={description}
       code={exampleCode}
       response={response}
+      error={error}
     />
   </div>
 );

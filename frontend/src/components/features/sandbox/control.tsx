@@ -5,11 +5,13 @@ export const Control = ({
   description,
   code,
   response,
+  error,
 }: {
   title: string;
   description: string;
   code: string;
   response?: Record<any, any>;
+  error: Error | null;
 }) => (
   <div className="prose divide-y overflow-auto border-l border-neutral-200 bg-neutral-100">
     <div className="px-4">
@@ -20,6 +22,16 @@ export const Control = ({
       <h4>Response</h4>
       <Code
         code={JSON.stringify(response, null, 2) ?? 'undefined'}
+        options={{
+          lang: 'json',
+          theme: 'catppuccin-mocha',
+        }}
+      />
+    </div>
+    <div className="px-4">
+      <h4>Error</h4>
+      <Code
+        code={JSON.stringify(error, null, 2) ?? 'undefined'}
         options={{
           lang: 'json',
           theme: 'catppuccin-mocha',

@@ -36,7 +36,7 @@ function RouteComponent() {
     },
   });
 
-  const { data, login } = useLogin({
+  const { data, error, login } = useLogin({
     username: form.watch('username'),
     password: form.watch('password'),
   });
@@ -47,6 +47,7 @@ function RouteComponent() {
       description="Login to Frappe using username and password."
       exampleCode={exampleCode}
       response={data}
+      error={error}
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(login)} className="w-96 space-y-4">
