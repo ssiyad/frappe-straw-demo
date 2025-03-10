@@ -1,3 +1,4 @@
+import { JsonCompatible } from '@/types/json';
 import { PropsWithChildren } from 'react';
 import { Control } from './control';
 
@@ -12,7 +13,7 @@ export const Sandbox = ({
   title: string;
   description: string;
   exampleCode: string;
-  response?: Record<any, any>;
+  response?: JsonCompatible;
   error: Error | null;
 }>) => (
   <div className="grid h-full w-full grid-cols-3">

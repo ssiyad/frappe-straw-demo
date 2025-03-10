@@ -86,8 +86,7 @@ function RouteComponent() {
   );
 }
 
-const exampleCode = `
-import { useForm } from 'react-hook-form';
+const exampleCode = `import { useForm } from 'react-hook-form';
 import { useLogin } from 'frappe-straw';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';

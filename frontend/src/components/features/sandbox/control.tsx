@@ -1,3 +1,4 @@
+import { JsonCompatible } from '@/types/json';
 import { Code } from './code';
 
 export const Control = ({
@@ -10,7 +11,7 @@ export const Control = ({
   title: string;
   description: string;
   code: string;
-  response?: Record<any, any>;
+  response?: JsonCompatible;
   error: Error | null;
 }) => (
   <div className="prose divide-y overflow-auto border-l border-neutral-200 bg-neutral-100">
