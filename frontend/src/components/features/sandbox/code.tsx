@@ -1,20 +1,18 @@
 import { useState } from 'react';
-import {
-  BundledLanguage,
-  BundledTheme,
-  CodeToHastOptions,
-  codeToHtml,
-} from 'shiki';
+import { BundledLanguage, codeToHtml, SpecialLanguage } from 'shiki';
 
 export const Code = ({
   code,
-  options,
+  lang,
 }: {
   code: string;
-  options: CodeToHastOptions<BundledLanguage, BundledTheme>;
+  lang: BundledLanguage | SpecialLanguage;
 }) => {
   const [html, setHtml] = useState('');
-  codeToHtml(code, options).then(setHtml);
+  codeToHtml(code, {
+    theme: 'catppuccin-mocha',
+    lang,
+  }).then(setHtml);
 
   return (
     <div

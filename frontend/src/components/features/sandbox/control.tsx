@@ -22,31 +22,16 @@ export const Control = ({
       <h4>Response</h4>
       <Code
         code={JSON.stringify(response, null, 2) ?? 'undefined'}
-        options={{
-          lang: 'json',
-          theme: 'catppuccin-mocha',
-        }}
+        lang="json"
       />
     </div>
     <div className="px-4">
       <h4>Error</h4>
-      <Code
-        code={JSON.stringify(error, null, 2) ?? 'undefined'}
-        options={{
-          lang: 'json',
-          theme: 'catppuccin-mocha',
-        }}
-      />
+      <Code code={JSON.stringify(error, null, 2) ?? 'undefined'} lang="json" />
     </div>
     <div className="px-4">
       <h4>Code</h4>
-      <Code
-        code={code}
-        options={{
-          lang: 'typescript',
-          theme: 'catppuccin-mocha',
-        }}
-      />
+      <Code code={code} lang="typescript" />
     </div>
   </div>
 );
