@@ -31,7 +31,9 @@ const Header = () => {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/straw-demo">Home</BreadcrumbLink>
+              <BreadcrumbLink href="/straw-demo">
+                <span className="font-cursive text-xl">Frappe Straw Demo</span>
+              </BreadcrumbLink>
             </BreadcrumbItem>
             {matches
               .slice(0, -1)
