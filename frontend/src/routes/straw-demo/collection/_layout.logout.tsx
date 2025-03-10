@@ -26,7 +26,8 @@ function RouteComponent() {
   );
 }
 
-const exampleCode = `import { useLogout } from 'frappe-straw';
+const exampleCode = `import { Button } from '@/components/ui/button';
+import { useLogout } from 'frappe-straw';
 
 const { data, error, logout } = useLogout();
 
