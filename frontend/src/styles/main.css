@@ -1,1 +1,17 @@
-@import './globals.css'
+@import './globals.css';
+
+@font-face {
+	font-family: 'GeistMono';
+	src: url('/fonts/GeistMono.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Geist';
+	src: url('/fonts/Geist.woff2') format('woff2');
+}
+
+@theme {
+	--font-*: initial;
+	--font-mono: GeistMono, monospace;
+	--font-sans: Geist, sans-serif;
+}
