@@ -6,6 +6,6 @@ export const Route = createFileRoute('/straw-demo/')({
 
 function RouteComponent() {
   useRouter().navigate({
-    to: '/straw-demo/gallery',
+    to: '/straw-demo/collection',
   });
 }

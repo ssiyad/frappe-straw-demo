@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowRightIcon } from 'lucide-react';
 
-export const Route = createFileRoute('/straw-demo/gallery/_layout/')({
+export const Route = createFileRoute('/straw-demo/collection/_layout/')({
   component: () => (
     <div className="grid grid-cols-3 gap-3 p-8">
       {[
@@ -9,7 +9,7 @@ export const Route = createFileRoute('/straw-demo/gallery/_layout/')({
           module: 'Auth',
           name: 'Login',
           description: 'Login using username and password.',
-          to: '/straw-demo/gallery/login',
+          to: '/straw-demo/collection/login',
         },
       ].map(({ module, name, description, to }) => (
         <div className="space-y-2 rounded border p-4">

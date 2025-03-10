@@ -19,7 +19,7 @@ export const Control = ({
     <div className="px-4">
       <h4>Response</h4>
       <Code
-        code={JSON.stringify(response, null, 2)}
+        code={JSON.stringify(response, null, 2) ?? 'undefined'}
         options={{
           lang: 'json',
           theme: 'catppuccin-mocha',
