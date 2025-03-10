@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowRightIcon } from 'lucide-react';
 
 export const Route = createFileRoute('/straw-demo/collection/_layout/')({
   component: RouteComponent,
@@ -31,18 +30,12 @@ function RouteComponent() {
           to: '/straw-demo/collection/resource',
         },
       ].map(({ name, description, to }) => (
-        <div className="space-y-2 rounded border p-4">
-          <div className="flex w-full items-center justify-between">
-            <span className="font-semibold">{name}</span>
-            <Link to={to}>
-              <div className="flex cursor-pointer items-center text-sm">
-                Try now
-                <ArrowRightIcon size={16} className="ml-2" />
-              </div>
-            </Link>
+        <Link to={to}>
+          <div className="space-y-2 rounded border p-4 hover:bg-neutral-50">
+            <div className="font-semibold">{name}</div>
+            <div className="text-sm">{description}</div>
           </div>
-          <div className="text-sm">{description}</div>
-        </div>
+        </Link>
       ))}
     </div>
   );
