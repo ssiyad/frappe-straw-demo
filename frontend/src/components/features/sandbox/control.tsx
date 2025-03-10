@@ -17,7 +17,7 @@ export const Control = ({
   <div className="prose divide-y overflow-auto border-l border-neutral-200 bg-neutral-100">
     <div className="px-4">
       <h3>{title}</h3>
-      <p>{description}</p>
+      <p className="text-sm">{description}</p>
     </div>
     <div className="px-4">
       <h4>Response</h4>
