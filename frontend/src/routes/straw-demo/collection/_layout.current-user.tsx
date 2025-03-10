@@ -16,8 +16,8 @@ function RouteComponent() {
 
   return (
     <Sandbox
-      title="Login"
-      description="Login to Frappe using username and password."
+      title="Get Current User"
+      description="Get current logged in user."
       exampleCode={exampleCode}
       response={data}
       error={error}
