@@ -32,7 +32,7 @@ export const Control = ({
     </div>
     <div className="px-4">
       <h4>Code</h4>
-      <Code code={code} lang="typescript" />
+      <Code code={code} lang="tsx" />
     </div>
   </div>
 );
