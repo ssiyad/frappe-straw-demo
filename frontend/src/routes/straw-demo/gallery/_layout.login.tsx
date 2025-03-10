@@ -16,6 +16,9 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 export const Route = createFileRoute('/straw-demo/gallery/_layout/login')({
+  context: () => ({
+    crumb: 'Login',
+  }),
   component: RouteComponent,
 });
 

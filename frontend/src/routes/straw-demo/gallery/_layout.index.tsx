@@ -3,7 +3,7 @@ import { ArrowRightIcon } from 'lucide-react';
 
 export const Route = createFileRoute('/straw-demo/gallery/_layout/')({
   component: () => (
-    <div className="grid grid-cols-3 gap-3">
+    <div className="grid grid-cols-3 gap-3 p-8">
       {[
         {
           module: 'Auth',
