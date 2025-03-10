@@ -3,4 +3,9 @@ import frappe
 
 @frappe.whitelist(allow_guest=True)
 def hello_world():
-	return "Hello World"
+	return {
+		"english": "Hello, World!",
+		"malayalam": "ഹലോ വേൾഡ്!",
+		"hindi": "हैलो वर्ल्ड!",
+		"arabic": "!مرحبا بالعالم",
+	}
