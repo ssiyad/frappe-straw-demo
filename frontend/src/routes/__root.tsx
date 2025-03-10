@@ -1,15 +1,14 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router';
-import * as React from 'react';
 
 export const Route = createRootRoute({
   component: () => {
     return (
-      <React.Fragment>
+      <div className="flex h-screen w-screen flex-col">
         <Header />
-        <div className="p-8">
+        <div className="grow overflow-hidden">
           <Outlet />
         </div>
-      </React.Fragment>
+      </div>
     );
   },
 });
