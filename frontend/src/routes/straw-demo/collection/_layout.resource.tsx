@@ -161,7 +161,7 @@ return (
           </FormItem>
         )}
       />
-      <Button onClick={refresh} disabled={loading}>
+      <Button type='submit' disabled={loading}>
         <Loader2Icon
           className={cn('hidden', {
             'block animate-spin': loading,
