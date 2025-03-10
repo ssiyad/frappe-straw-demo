@@ -2,35 +2,38 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowRightIcon } from 'lucide-react';
 
 export const Route = createFileRoute('/straw-demo/collection/_layout/')({
-  component: () => (
+  component: RouteComponent,
+});
+
+function RouteComponent() {
+  return (
     <div className="grid grid-cols-3 gap-3 p-8">
       {[
         {
-          module: 'Auth',
           name: 'Login',
           description: 'Login using username and password.',
           to: '/straw-demo/collection/login',
         },
         {
-          module: 'Auth',
           name: 'Current User',
           description: 'Get currently logged in user.',
           to: '/straw-demo/collection/current-user',
         },
         {
-          module: 'Auth',
           name: 'Logout',
           description: 'Logout from the system.',
           to: '/straw-demo/collection/logout',
         },
-      ].map(({ module, name, description, to }) => (
+        {
+          name: 'Resource',
+          description:
+            'Fetch data from a URL and handle loading and error states.',
+          to: '/straw-demo/collection/resource',
+        },
+      ].map(({ name, description, to }) => (
         <div className="space-y-2 rounded border p-4">
           <div className="flex w-full items-center justify-between">
-            <div className="space-x-1 font-semibold">
-              <span className="text-neutral-700">{module}</span>
-              <span className="text-neutral-700">/</span>
-              <span>{name}</span>
-            </div>
+            <span className="font-semibold">{name}</span>
             <Link to={to}>
               <div className="flex cursor-pointer items-center text-sm">
                 Try now
@@ -42,5 +45,5 @@ export const Route = createFileRoute('/straw-demo/collection/_layout/')({
         </div>
       ))}
     </div>
-  ),
-});
+  );
+}
