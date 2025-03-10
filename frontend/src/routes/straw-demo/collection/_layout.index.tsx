@@ -17,6 +17,12 @@ export const Route = createFileRoute('/straw-demo/collection/_layout/')({
           description: 'Get currently logged in user.',
           to: '/straw-demo/collection/current-user',
         },
+        {
+          module: 'Auth',
+          name: 'Logout',
+          description: 'Logout from the system.',
+          to: '/straw-demo/collection/logout',
+        },
       ].map(({ module, name, description, to }) => (
         <div className="space-y-2 rounded border p-4">
           <div className="flex w-full items-center justify-between">
