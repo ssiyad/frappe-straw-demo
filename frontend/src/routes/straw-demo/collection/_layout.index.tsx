@@ -36,7 +36,7 @@ function RouteComponent() {
         },
       ].map(({ name, description, to }) => (
         <Link to={to}>
-          <div className="space-y-2 rounded border p-4 hover:bg-neutral-50">
+          <div className="space-y-2 rounded p-4 shadow-md hover:bg-neutral-50">
             <div className="font-semibold">{name}</div>
             <div className="text-sm">{description}</div>
           </div>

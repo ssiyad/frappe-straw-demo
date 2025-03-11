@@ -26,7 +26,7 @@ const Header = () => {
   const matches = useMatches();
 
   return (
-    <header className="box-border flex h-14 shrink-0 items-center justify-between border-b px-8">
+    <header className="flex h-14 shrink-0 items-center justify-between px-8 shadow-sm">
       <div>
         <Breadcrumb>
           <BreadcrumbList>
