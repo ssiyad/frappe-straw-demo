@@ -110,7 +110,7 @@ function RouteComponent() {
               </FormItem>
             )}
           />
-          <Button onClick={refresh} disabled={loading}>
+          <Button onClick={refresh} disabled={loading} className="w-full">
             <Loader2Icon
               className={cn('hidden', {
                 'block animate-spin': loading,
