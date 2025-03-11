@@ -5,9 +5,10 @@ import { useCurrentUser } from 'frappe-straw';
 export const Route = createFileRoute(
   '/straw-demo/collection/_layout/current-user',
 )({
-  context: () => ({
+  staticData: {
     crumb: 'Get Current User',
-  }),
+    description: 'Get current logged in user.',
+  },
   component: RouteComponent,
 });
 

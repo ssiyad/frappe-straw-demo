@@ -24,9 +24,10 @@ import { z } from 'zod';
 
 export const Route = createFileRoute('/straw-demo/collection/_layout/resource')(
   {
-    context: () => ({
+    staticData: {
       crumb: 'Resource',
-    }),
+      description: 'Fetch data from a URL and handle loading and error states.',
+    },
     component: RouteComponent,
   },
 );

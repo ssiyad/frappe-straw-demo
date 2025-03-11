@@ -8,10 +8,16 @@ import './styles/main.css';
 // Create router instance.
 const router = createRouter({ routeTree });
 
-// Register router object for type safety.
 declare module '@tanstack/react-router' {
+  // Register router object for type safety.
   interface Register {
     router: typeof router;
+  }
+
+  // Define route static data.
+  interface StaticDataRouteOption {
+    crumb?: string;
+    description?: string;
   }
 }
 

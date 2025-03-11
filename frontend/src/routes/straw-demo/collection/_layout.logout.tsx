@@ -4,9 +4,10 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useLogout } from 'frappe-straw';
 
 export const Route = createFileRoute('/straw-demo/collection/_layout/logout')({
-  context: () => ({
+  staticData: {
     crumb: 'Logout',
-  }),
+    description: 'Logout from the system.',
+  },
   component: RouteComponent,
 });
 
