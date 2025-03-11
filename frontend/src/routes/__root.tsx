@@ -24,6 +24,11 @@ export const Route = createRootRoute({
 
 const Header = () => {
   const matches = useMatches();
+  const parents = matches
+    .filter((match) => match.staticData.crumb)
+    .slice(0, -1);
+  const page = matches.filter((match) => match.staticData.crumb).at(-1)
+    ?.staticData.crumb;
 
   return (
     <header className="flex h-14 shrink-0 items-center justify-between px-8 shadow-sm">
@@ -35,20 +40,17 @@ const Header = () => {
                 <span className="font-cursive text-xl">Frappe Straw Demo</span>
               </BreadcrumbLink>
             </BreadcrumbItem>
-            {matches
-              .slice(0, -1)
-              .filter(({ context }) => context.crumb)
-              .map(({ fullPath, context: { crumb } }) => (
-                <React.Fragment>
-                  <BreadcrumbSeparator key={fullPath} />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink href={fullPath}>{crumb}</BreadcrumbLink>
-                  </BreadcrumbItem>
-                </React.Fragment>
-              ))}
+            {parents.map(({ fullPath, staticData: { crumb } }) => (
+              <React.Fragment key={fullPath}>
+                <BreadcrumbSeparator key={fullPath} />
+                <BreadcrumbItem>
+                  <BreadcrumbLink href={fullPath}>{crumb}</BreadcrumbLink>
+                </BreadcrumbItem>
+              </React.Fragment>
+            ))}
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>{matches.at(-1)?.context.crumb}</BreadcrumbPage>
+              <BreadcrumbPage>{page}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
