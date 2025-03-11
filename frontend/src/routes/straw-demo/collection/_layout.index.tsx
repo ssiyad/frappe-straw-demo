@@ -29,6 +29,11 @@ function RouteComponent() {
             'Fetch data from a URL and handle loading and error states.',
           to: '/straw-demo/collection/resource',
         },
+        {
+          name: 'Document Resource',
+          description: 'Fetch a document.',
+          to: '/straw-demo/collection/document-resource',
+        },
       ].map(({ name, description, to }) => (
         <Link to={to}>
           <div className="space-y-2 rounded border p-4 hover:bg-neutral-50">
