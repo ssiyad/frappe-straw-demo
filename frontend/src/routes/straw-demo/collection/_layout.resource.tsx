@@ -10,7 +10,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Switch } from '@/components/ui/switch';
 import { cn } from '@/lib/utils';
 import { JsonCompatible } from '@/types/json';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -18,7 +17,6 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useDebounce } from '@uidotdev/usehooks';
 import { useResource } from 'frappe-straw';
 import { Loader2Icon } from 'lucide-react';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -35,25 +33,17 @@ export const Route = createFileRoute('/straw-demo/collection/_layout/resource')(
 function RouteComponent() {
   const formSchema = z.object({
     url: z.string().nonempty(),
-    autoRefresh: z.boolean(),
   });
 
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       url: 'https://jsonplaceholder.typicode.com/todos/1',
-      autoRefresh: true,
     },
   });
 
   const url = useDebounce(form.watch('url'), 500);
   const { data, error, loading, refresh } = useResource<JsonCompatible>(url);
-
-  useEffect(() => {
-    if (form.watch('autoRefresh') && url) {
-      refresh();
-    }
-  }, [form.watch('autoRefresh'), url]);
 
   const exampleUrls = [
     'frappe_straw_demo.api.demo.hello_world',
@@ -91,22 +81,6 @@ function RouteComponent() {
                     </li>
                   ))}
                 </ul>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="autoRefresh"
-            render={({ field }) => (
-              <FormItem className="flex items-center space-x-2">
-                <FormControl>
-                  <Switch
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <FormLabel>Auto Refresh</FormLabel>
                 <FormMessage />
               </FormItem>
             )}
