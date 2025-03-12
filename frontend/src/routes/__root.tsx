@@ -31,7 +31,7 @@ const Header = () => {
     ?.staticData.crumb;
 
   return (
-    <header className="flex h-14 shrink-0 items-center justify-between px-8 shadow-sm">
+    <header className="flex h-14 shrink-0 items-center justify-between border-b px-8">
       <div>
         <Breadcrumb>
           <BreadcrumbList>
