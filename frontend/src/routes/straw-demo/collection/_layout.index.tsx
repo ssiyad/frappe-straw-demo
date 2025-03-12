@@ -22,7 +22,7 @@ function RouteComponent() {
     <div className="grid grid-cols-3">
       {routes.map(({ name, description, to }) => (
         <Link to={to} key={to}>
-          <div className="space-y-2 border-r border-b p-8">
+          <div className="space-y-2 border-r border-b p-8 transition-colors hover:bg-neutral-100">
             <div className="font-semibold">{name}</div>
             <div className="text-sm">{description}</div>
           </div>
