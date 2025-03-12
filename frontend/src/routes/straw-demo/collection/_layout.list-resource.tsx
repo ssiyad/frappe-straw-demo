@@ -4,6 +4,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -69,11 +70,14 @@ function RouteComponent() {
   });
 
   const fields = form.watch('fields');
-  const { data, error, loading, refresh } = useListResource<BaseDocument>({
-    doctype: 'Report',
-    fields: Object.keys(fields).filter((f) => fields[f]),
-    limit: form.watch('limit')[0],
-  });
+  const limit = form.watch('limit')[0];
+  const { data, error, loading, getCount, refresh } =
+    useListResource<BaseDocument>({
+      doctype: form.watch('doctype'),
+      fields: Object.keys(fields).filter((f) => fields[f]),
+      limit,
+    });
+  const { data: count } = getCount();
 
   return (
     <Sandbox
@@ -150,6 +154,9 @@ function RouteComponent() {
               </FormItem>
             )}
           />
+          <FormDescription>
+            Showing {limit} of {count} entries.
+          </FormDescription>
           <Button onClick={refresh} disabled={loading} className="w-full">
             <Loader2Icon
               className={cn('hidden', {
@@ -173,9 +180,11 @@ function RouteComponent() {
 const exampleCode = `import { useDocumentResource } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 
-const { data, error, loading, refresh } = useListResource<BaseDocument>({
+const { data, error, loading, getCount, refresh } = useListResource<BaseDocument>({
   doctype: 'Report',
   fields: ['name', 'report_type', 'ref_doctype', 'letter_head'],
   limit: 10,
 });
+
+const { data: count } = getCount();
 `;
