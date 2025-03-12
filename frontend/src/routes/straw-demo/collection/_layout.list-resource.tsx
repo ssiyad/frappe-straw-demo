@@ -177,7 +177,7 @@ function RouteComponent() {
   );
 }
 
-const exampleCode = `import { useDocumentResource } from 'frappe-straw';
+const exampleCode = `import { useListResource } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 
 const { data, error, loading, getCount, refresh } = useListResource<BaseDocument>({
