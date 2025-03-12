@@ -46,7 +46,7 @@ function RouteComponent() {
       report_type: z.boolean(),
       letter_head: z.boolean(),
     }),
-    limit: z.coerce.number(),
+    limit: z.array(z.number()),
   });
 
   const form = useForm({
@@ -64,7 +64,7 @@ function RouteComponent() {
         report_type: true,
         letter_head: false,
       },
-      limit: 3,
+      limit: [3],
     },
   });
 
@@ -72,7 +72,7 @@ function RouteComponent() {
   const { data, error, loading, refresh } = useListResource<BaseDocument>({
     doctype: 'Report',
     fields: Object.keys(fields).filter((f) => fields[f]),
-    limit: form.watch('limit'),
+    limit: form.watch('limit')[0],
   });
 
   return (
