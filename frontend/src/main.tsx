@@ -26,7 +26,7 @@ const root = document.getElementById('root')!;
 if (!root.innerHTML) {
   createRoot(root).render(
     <StrictMode>
-      <Straw url={import.meta.env.VITE_FRAPPE_API_URL}>
+      <Straw>
         <RouterProvider router={router} />
       </Straw>
     </StrictMode>,
