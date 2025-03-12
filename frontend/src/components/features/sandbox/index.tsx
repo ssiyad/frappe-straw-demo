@@ -1,6 +1,7 @@
 import { JsonCompatible } from '@/types/json';
 import { PropsWithChildren } from 'react';
 import { Control } from './control';
+export { Code } from './code.tsx';
 
 export const Sandbox = ({
   title,

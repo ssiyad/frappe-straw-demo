@@ -4,9 +4,11 @@ import { BundledLanguage, codeToHtml, SpecialLanguage } from 'shiki';
 export const Code = ({
   code,
   lang,
+  className,
 }: {
   code: string;
   lang: BundledLanguage | SpecialLanguage;
+  className?: string;
 }) => {
   const [html, setHtml] = useState('');
   codeToHtml(code, {
@@ -16,6 +18,7 @@ export const Code = ({
 
   return (
     <div
+      className={className}
       dangerouslySetInnerHTML={{
         __html: html,
       }}
