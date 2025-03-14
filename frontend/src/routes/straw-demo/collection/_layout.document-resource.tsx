@@ -149,7 +149,7 @@ function RouteComponent() {
                 'block animate-spin': loading,
               })}
             />
-            Fetch
+            Refresh
           </Button>
           <Link to="/straw-demo/collection/login">
             <Button type="button" role="link" variant="link" className="w-full">
