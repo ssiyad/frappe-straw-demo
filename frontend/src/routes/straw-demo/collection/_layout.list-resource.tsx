@@ -71,13 +71,13 @@ function RouteComponent() {
 
   const fields = form.watch('fields');
   const limit = form.watch('limit')[0];
-  const { data, error, loading, getCount, refresh } =
+  const { data, error, loading, useCount, refresh } =
     useListResource<BaseDocument>({
       doctype: form.watch('doctype'),
       fields: Object.keys(fields).filter((f) => fields[f]),
       limit,
     });
-  const { data: count } = getCount();
+  const { data: count } = useCount();
 
   return (
     <Sandbox
@@ -180,11 +180,11 @@ function RouteComponent() {
 const exampleCode = `import { useListResource } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 
-const { data, error, loading, getCount, refresh } = useListResource<BaseDocument>({
+const { data, error, loading, useCount, refresh } = useListResource<BaseDocument>({
   doctype: 'Report',
   fields: ['name', 'report_type', 'ref_doctype', 'letter_head'],
   limit: 10,
 });
 
-const { data: count } = getCount();
+const { data: count } = useCount();
 `;
