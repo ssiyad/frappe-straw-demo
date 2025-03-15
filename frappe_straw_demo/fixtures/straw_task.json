@@ -1,12 +1,12 @@
 [
  {
-  "attempt": 70,
+  "attempt": 3,
   "description": null,
   "docstatus": 0,
   "doctype": "Straw Task",
-  "modified": "2025-03-16 01:39:02.481837",
+  "modified": "2025-03-16 01:52:24.008625",
   "name": "qp8r9rhj21",
-  "status": "Done",
+  "status": "Planned",
   "title": "Feature: Run doc method",
   "user": "Administrator"
  }
