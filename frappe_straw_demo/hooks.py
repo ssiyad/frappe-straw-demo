@@ -1,7 +1,7 @@
 app_name = "frappe_straw_demo"
 app_title = "Frappe Straw Demo"
 app_publisher = "Sabu Siyad"
-app_description = "Demo site to test or preview frappe straw"
+app_description = "Frappe app to test and develop Frappe Straw."
 app_email = "hello@ssiyad.com"
 app_license = "gpl-3.0"
 
@@ -241,3 +241,5 @@ app_license = "gpl-3.0"
 website_route_rules = [
 	{"from_route": "/straw-demo/<path:app_path>", "to_route": "straw-demo"},
 ]
+
+fixtures = ["Straw Task"]
