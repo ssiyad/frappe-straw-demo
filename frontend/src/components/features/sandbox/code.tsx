@@ -12,7 +12,7 @@ export const Code = ({
 }) => {
   const [html, setHtml] = useState('');
   codeToHtml(code, {
-    theme: 'catppuccin-mocha',
+    theme: 'one-light',
     lang,
   }).then(setHtml);
 
