@@ -6,6 +6,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { Toaster } from '@/components/ui/sonner';
 import { Outlet, createRootRoute, useMatches } from '@tanstack/react-router';
 import React from 'react';
 
@@ -13,6 +14,7 @@ export const Route = createRootRoute({
   component: () => {
     return (
       <div className="flex h-screen w-screen flex-col">
+        <Toaster theme="light" />
         <Header />
         <div className="grow overflow-hidden">
           <Outlet />

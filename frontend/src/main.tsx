@@ -2,6 +2,7 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { Straw } from 'frappe-straw';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { onError } from './error';
 import { routeTree } from './routeTree.gen.ts';
 import './styles/main.css';
 
@@ -26,7 +27,7 @@ const root = document.getElementById('root')!;
 if (!root.innerHTML) {
   createRoot(root).render(
     <StrictMode>
-      <Straw>
+      <Straw onError={onError}>
         <RouterProvider router={router} />
       </Straw>
     </StrictMode>,
