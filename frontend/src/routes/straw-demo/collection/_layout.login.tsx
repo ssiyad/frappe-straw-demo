@@ -37,10 +37,11 @@ function RouteComponent() {
     },
   });
 
-  const { data, error, login } = useLogin({
-    username: form.watch('username'),
-    password: form.watch('password'),
-  });
+  const { data, error, login } = useLogin();
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    login(values);
+  };
 
   return (
     <Sandbox
@@ -51,7 +52,7 @@ function RouteComponent() {
       error={error}
     >
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(login)} className="w-96 space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-96 space-y-4">
           <FormField
             control={form.control}
             name="username"
@@ -105,10 +106,9 @@ const form = useForm({
   },
 });
 
-const { data, login } = useLogin({
-  username: form.watch('username'),
-  password: form.watch('password'),
-});
+const { data, login } = useLogin();
 
-const onSubmit = form.handleSubmit(login);
+const onSubmit = (values: z.infer<typeof formSchema>) => {
+  login(values);
+};
 `;
