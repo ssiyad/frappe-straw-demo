@@ -46,6 +46,7 @@ function RouteComponent() {
       <div className="space-y-4 text-sm">
         <Label>URL</Label>
         <Input value={url} onChange={(event) => setUrl(event.target.value)} />
+        {error && <div className="text-destructive">{error.message}</div>}
         <div>
           Url can be any Frappe method, internal Url, or external Url. Try one
           of the following:
