@@ -3402,6 +3402,7 @@ __metadata:
   dependencies:
     "@isaacs/ttlcache": "npm:^1.4.1"
     axios: "npm:^1.7.7"
+    date-fns: "npm:^4.1.0"
     qs: "npm:^6.14.0"
     react: "npm:^19.0.0"
   languageName: node
@@ -3438,7 +3439,6 @@ __metadata:
     "@vitejs/plugin-react": "npm:^4.3.4"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
-    date-fns: "npm:^4.1.0"
     eslint: "npm:^9.21.0"
     eslint-plugin-react-hooks: "npm:^5.1.0"
     eslint-plugin-react-refresh: "npm:^0.4.19"

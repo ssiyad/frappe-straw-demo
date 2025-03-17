@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { TextEditor } from '@/components/ui/text-editor';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { formatDistanceToNow, parseISO } from 'date-fns';
 import { useDocumentResource } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 import { ArrowRightIcon } from 'lucide-react';
@@ -19,7 +18,7 @@ export const Route = createFileRoute(
 });
 
 function RouteComponent() {
-  const { data, error, useSave } = useDocumentResource<
+  const { data, error, useTimeAgo, useSave } = useDocumentResource<
     BaseDocument & {
       title: string;
       user: string;
@@ -29,6 +28,7 @@ function RouteComponent() {
     }
   >('Straw Task', 'qp8r9rhj21');
 
+  const { modifiedAt } = useTimeAgo();
   const { run: save } = useSave();
   const onSave = (content: string) => save({ description: content });
 
@@ -47,12 +47,7 @@ function RouteComponent() {
           {data?.modified && (
             <span className="text-muted-foreground space-x-1 text-sm">
               <span>Last modified</span>
-              <span>
-                {formatDistanceToNow(parseISO(data.modified), {
-                  addSuffix: true,
-                })}
-              </span>
-              .
+              <span>{modifiedAt}.</span>
             </span>
           )}
         </div>
