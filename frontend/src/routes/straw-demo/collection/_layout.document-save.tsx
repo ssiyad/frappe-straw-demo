@@ -8,7 +8,7 @@ import { BaseDocument } from 'frappe-straw/types';
 import { ArrowRightIcon } from 'lucide-react';
 
 export const Route = createFileRoute(
-  '/straw-demo/collection/_layout/save-document',
+  '/straw-demo/collection/_layout/document-save',
 )({
   staticData: {
     crumb: 'Save a Document',
