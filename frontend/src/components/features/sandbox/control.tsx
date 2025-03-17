@@ -21,6 +21,10 @@ export const Control = ({
       <p className="text-sm">{description}</p>
     </div>
     <div className="px-4">
+      <h4>Code</h4>
+      <Code code={code} lang="tsx" />
+    </div>
+    <div className="px-4">
       <h4>Response</h4>
       <Code
         code={JSON.stringify(response, null, 2) ?? 'undefined'}
@@ -30,10 +34,6 @@ export const Control = ({
     <div className="px-4">
       <h4>Error</h4>
       <Code code={JSON.stringify(error, null, 2) ?? 'undefined'} lang="json" />
-    </div>
-    <div className="px-4">
-      <h4>Code</h4>
-      <Code code={code} lang="tsx" />
     </div>
   </div>
 );
