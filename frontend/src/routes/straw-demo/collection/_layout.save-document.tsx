@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { TextEditor } from '@/components/ui/text-editor';
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { formatDistanceToNow, parseISO } from 'date-fns';
 import { useDocumentResource } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 import { ArrowRightIcon } from 'lucide-react';
@@ -43,6 +44,17 @@ function RouteComponent() {
         <div className="space-y-2">
           <Label>Description</Label>
           <TextEditor initialContent={data?.description} onSave={onSave} />
+          {data?.modified && (
+            <span className="text-muted-foreground space-x-1 text-sm">
+              <span>Last modified</span>
+              <span>
+                {formatDistanceToNow(parseISO(data.modified), {
+                  addSuffix: true,
+                })}
+              </span>
+              .
+            </span>
+          )}
         </div>
         <Link to="/straw-demo/collection/login">
           <Button type="button" role="link" variant="link" className="w-full">
