@@ -305,7 +305,7 @@ export function TextEditor({
         </BubbleMenu>
       )}
 
-      <EditorContent editor={editor} />
+      <EditorContent className="max-w-prose" editor={editor} />
 
       <style>
         {`

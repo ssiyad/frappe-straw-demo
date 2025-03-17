@@ -44,12 +44,10 @@ function RouteComponent() {
         <div className="space-y-2">
           <Label>Description</Label>
           <TextEditor initialContent={data?.description} onSave={onSave} />
-          {data?.modified && (
-            <span className="text-muted-foreground space-x-1 text-sm">
-              <span>Last modified</span>
-              <span>{modifiedAt}.</span>
-            </span>
-          )}
+          <span className="text-muted-foreground space-x-1 text-sm">
+            <span>Last modified</span>
+            <span>{modifiedAt}.</span>
+          </span>
         </div>
         <Link to="/straw-demo/collection/login">
           <Button type="button" role="link" variant="link" className="w-full">
