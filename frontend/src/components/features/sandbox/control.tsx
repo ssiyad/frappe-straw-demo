@@ -1,4 +1,5 @@
 import { JsonCompatible } from '@/types/json';
+import { type StrawError } from 'frappe-straw/types';
 import { Code } from './code';
 
 export const Control = ({
@@ -12,7 +13,7 @@ export const Control = ({
   description: string;
   code: string;
   response?: JsonCompatible;
-  error: Error | null;
+  error: StrawError | null;
 }) => (
   <div className="prose divide-y overflow-auto border-l border-neutral-200 bg-neutral-100">
     <div className="px-4">

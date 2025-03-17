@@ -1,4 +1,5 @@
 import { JsonCompatible } from '@/types/json';
+import { type StrawError } from 'frappe-straw/types/StrawError.ts';
 import { PropsWithChildren } from 'react';
 import { Control } from './control';
 export { Code } from './code.tsx';
@@ -15,7 +16,7 @@ export const Sandbox = ({
   description: string;
   exampleCode: string;
   response?: JsonCompatible;
-  error: Error | null;
+  error: StrawError | null;
 }>) => (
   <div className="grid h-full w-full grid-cols-3">
     <div className="col-span-2 flex items-center justify-center">
