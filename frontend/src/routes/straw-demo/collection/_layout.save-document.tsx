@@ -56,9 +56,8 @@ function RouteComponent() {
 }
 
 const exampleCode = `import { useDocumentResource } from 'frappe-straw';
-import { BaseDocument } from 'frappe-straw/types';
 
-const { data, error, refresh, useSave } = useDocumentResource<BaseDocument>(
+const { useSave } = useDocumentResource(
   'Straw Task',
   'Task1',
 );
