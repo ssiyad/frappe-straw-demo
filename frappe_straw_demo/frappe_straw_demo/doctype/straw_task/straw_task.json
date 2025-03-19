@@ -10,7 +10,8 @@
   "user",
   "attempt",
   "status",
-  "description"
+  "description",
+  "amended_from"
  ],
  "fields": [
   {
@@ -48,12 +49,23 @@
    "label": "Status",
    "options": "Planned\nPending\nIn Progress\nDone\nCancelled",
    "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Straw Task",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-03-15 18:12:20.647358",
+ "modified": "2025-03-18 00:03:27.951513",
  "modified_by": "Administrator",
  "module": "Frappe Straw Demo",
  "name": "Straw Task",
