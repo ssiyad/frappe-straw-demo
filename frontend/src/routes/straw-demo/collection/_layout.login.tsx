@@ -13,6 +13,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { createFileRoute } from '@tanstack/react-router';
 import { useLogin } from 'frappe-straw';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 export const Route = createFileRoute('/straw-demo/collection/_layout/login')({
@@ -37,10 +38,14 @@ function RouteComponent() {
     },
   });
 
-  const { data, error, login } = useLogin();
+  const { data, error, login } = useLogin({
+    onSuccess: (response) => {
+      toast.success('Logged in as ' + response.full_name);
+    },
+  });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    login(values);
+  const onSubmit = ({ username, password }: z.infer<typeof formSchema>) => {
+    login(username, password);
   };
 
   return (
@@ -88,10 +93,7 @@ function RouteComponent() {
   );
 }
 
-const exampleCode = `import { useForm } from 'react-hook-form';
-import { useLogin } from 'frappe-straw';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
+const exampleCode = `import { useLogin } from 'frappe-straw';
 
 const formSchema = z.object({
   username: z.string().nonempty(),
@@ -106,9 +108,13 @@ const form = useForm({
   },
 });
 
-const { data, login } = useLogin();
+const { data, error, login } = useLogin({
+  onSuccess: (response) => {
+    toast.success('Logged in as ' + response.full_name);
+  },
+});
 
-const onSubmit = (values: z.infer<typeof formSchema>) => {
-  login(values);
+const onSubmit = ({ username, password }: z.infer<typeof formSchema>) => {
+  login(username, password);
 };
 `;
