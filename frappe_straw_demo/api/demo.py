@@ -3,6 +3,7 @@ import frappe
 
 @frappe.whitelist(allow_guest=True)
 def hello_world():
+	frappe.msgprint("Hello, World!", title="Hello, World!", indicator="green")
 	return {
 		"english": "Hello, World!",
 		"malayalam": "ഹലോ വേൾഡ്!",

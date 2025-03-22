@@ -3,6 +3,7 @@ import { Straw } from 'frappe-straw';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { onError } from './error';
+import { onMessages } from './messages.tsx';
 import { routeTree } from './routeTree.gen.ts';
 import './styles/main.css';
 
@@ -27,7 +28,7 @@ const root = document.getElementById('root')!;
 if (!root.innerHTML) {
   createRoot(root).render(
     <StrictMode>
-      <Straw onError={onError}>
+      <Straw onError={onError} onMessages={onMessages}>
         <RouterProvider router={router} />
       </Straw>
     </StrictMode>,
