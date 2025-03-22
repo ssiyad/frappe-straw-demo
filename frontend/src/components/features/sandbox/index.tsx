@@ -20,7 +20,7 @@ export const Sandbox = ({
 }>) => (
   <div className="grid h-full w-full grid-cols-3">
     <div className="col-span-2 flex items-center justify-center">
-      {children}
+      <div className="max-w-lg">{children}</div>
     </div>
     <Control
       title={title}
