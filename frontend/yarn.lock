@@ -2864,13 +2864,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "date-fns@npm:4.1.0"
-  checksum: 10c0/b79ff32830e6b7faa009590af6ae0fb8c3fd9ffad46d930548fbb5acf473773b4712ae887e156ba91a7b3dc30591ce0f517d69fd83bd9c38650fdc03b4e0bac8
-  languageName: node
-  linkType: hard
-
 "debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4":
   version: 4.4.0
   resolution: "debug@npm:4.4.0"
@@ -3417,17 +3410,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"frappe-straw@portal:/Users/ssiyad/sources/frappe-straw::locator=frontend%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "frappe-straw@portal:/Users/ssiyad/sources/frappe-straw::locator=frontend%40workspace%3A."
+"frappe-straw@npm:^0.3.2":
+  version: 0.3.2
+  resolution: "frappe-straw@npm:0.3.2"
   dependencies:
     "@isaacs/ttlcache": "npm:^1.4.1"
     axios: "npm:^1.7.7"
-    date-fns: "npm:^4.1.0"
     qs: "npm:^6.14.0"
     react: "npm:^19.0.0"
+  checksum: 10c0/b6c6e0caa3312d98cc2f841a12ea4f3d19a41105aa4b145cc4b1c1af9bbec61da394d9514fc44b9741ff7ae80a08f8a18d20c3399f7183b8c3c3093f7941f950
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "frontend@workspace:.":
   version: 0.0.0-use.local
