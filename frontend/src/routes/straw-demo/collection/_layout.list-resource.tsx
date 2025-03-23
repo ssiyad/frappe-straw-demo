@@ -12,12 +12,11 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
-import { cn } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { useListResource } from 'frappe-straw';
+import { useDocumentListResource } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
-import { ArrowRightIcon, Loader2Icon } from 'lucide-react';
+import { ArrowRightIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -71,12 +70,11 @@ function RouteComponent() {
 
   const fields = form.watch('fields');
   const limit = form.watch('limit')[0];
-  const { data, error, loading, useCount, refresh } =
-    useListResource<BaseDocument>({
-      doctype: form.watch('doctype'),
-      fields: Object.keys(fields).filter((f) => fields[f]),
-      limit,
-    });
+  const { data, error, useCount } = useDocumentListResource<BaseDocument>({
+    doctype: form.watch('doctype'),
+    fields: Object.keys(fields).filter((f) => fields[f]),
+    limit,
+  });
   const { data: count } = useCount();
 
   return (
@@ -88,7 +86,7 @@ function RouteComponent() {
       error={error}
     >
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(refresh)} className="w-96 space-y-4">
+        <form className="w-96 space-y-4">
           <FormField
             control={form.control}
             name="doctype"
@@ -157,14 +155,6 @@ function RouteComponent() {
           <FormDescription>
             Showing {limit} of {count} entries.
           </FormDescription>
-          <Button onClick={refresh} disabled={loading} className="w-full">
-            <Loader2Icon
-              className={cn('hidden', {
-                'block animate-spin': loading,
-              })}
-            />
-            Fetch
-          </Button>
           <Link to="/straw-demo/collection/login">
             <Button type="button" role="link" variant="link" className="w-full">
               Trouble fetching? Try to login

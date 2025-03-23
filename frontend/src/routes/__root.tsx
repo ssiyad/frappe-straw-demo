@@ -14,7 +14,7 @@ export const Route = createRootRoute({
   component: () => {
     return (
       <div className="flex h-screen w-screen flex-col">
-        <Toaster theme="light" />
+        <Toaster theme="light" expand />
         <Header />
         <div className="grow overflow-hidden">
           <Outlet />
