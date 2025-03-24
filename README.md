@@ -41,4 +41,4 @@ your code:
 - pyupgrade
 
 ### License
-GPL-3.0
+[GPL-3.0](./license.txt)
