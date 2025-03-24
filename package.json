@@ -1,10 +1,8 @@
 {
  "name": "frappe_straw_demo",
  "version": "1.0.0",
- "private": true,
  "description": "Demo site to test or preview frappe straw",
  "main": "index.js",
- "workspaces": ["frappe-straw", "frontend"],
  "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",
   "postinstall": "cd frontend && yarn install",
