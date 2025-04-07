@@ -3,12 +3,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { type JsonCompatible } from '@/types/json';
 import { createFileRoute } from '@tanstack/react-router';
 import { useDebounce } from '@uidotdev/usehooks';
-import { useResource } from 'frappe-straw';
+import { useCacheInvalidate, useResource } from 'frappe-straw';
+import { type JsonCompatible } from 'frappe-straw/types';
 import { Loader2Icon } from 'lucide-react';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 export const Route = createFileRoute('/straw-demo/collection/_layout/resource')(
   {
@@ -24,10 +25,25 @@ function RouteComponent() {
   const [url, setUrl] = useState(
     'https://jsonplaceholder.typicode.com/todos/1',
   );
+  const cacheInvalidate = useCacheInvalidate();
+  const cacheKey = {
+    url,
+  };
 
   const { data, error, loading, refresh } = useResource<JsonCompatible>(
     useDebounce(url, 300),
+    {
+      cache: cacheKey,
+      cacheTime: '1m',
+    },
   );
+
+  const onCacheInvalidate = () => {
+    cacheInvalidate(cacheKey, {
+      onSuccess: () => toast.success('Cache invalidated'),
+      onError: () => toast.error('Failed to invalidate cache'),
+    });
+  };
 
   const exampleUrls = [
     'frappe_straw_demo.api.demo.hello_world',
@@ -67,6 +83,14 @@ function RouteComponent() {
             ))}
           </ul>
         </div>
+        <Button
+          onClick={onCacheInvalidate}
+          disabled={loading}
+          variant="secondary"
+          className="w-full"
+        >
+          Invalidate Cache
+        </Button>
         <Button onClick={() => refresh()} disabled={loading} className="w-full">
           <Loader2Icon
             className={cn('hidden', {
@@ -80,9 +104,22 @@ function RouteComponent() {
   );
 }
 
-const exampleCode = `import { useResource } from 'frappe-straw';
-import { type JsonCompatible } from '@/types/json';
+const exampleCode = `import { useCacheInvalidate, useResource } from 'frappe-straw';
+import { type JsonCompatible } from 'frappe-straw/types';
 
 const url = 'https://jsonplaceholder.typicode.com/todos/3';
-const { data, error, loading, refresh } = useResource<JsonCompatible>(url);
+const cacheKey = {
+  url,
+};
+const cacheInvalidate = useCacheInvalidate();
+const onCacheInvalidate = () => {
+  cacheInvalidate(cacheKey, {
+    onSuccess: () => toast.success('Cache invalidated'),
+    onError: () => toast.error('Failed to invalidate cache'),
+  });
+};
+const { data, error, loading, refresh } = useResource<JsonCompatible>(url, {
+  cache: cacheKey,
+  cacheTime: '1m',
+});
 `;
