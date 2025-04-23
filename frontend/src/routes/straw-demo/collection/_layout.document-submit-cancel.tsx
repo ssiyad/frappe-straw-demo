@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { createFileRoute } from '@tanstack/react-router';
-import { useDocumentResource } from 'frappe-straw';
+import { useDocument } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 
 export const Route = createFileRoute(
@@ -26,7 +26,7 @@ function RouteComponent() {
     useTimeAgo,
     useSubmit,
     useCancel,
-  } = useDocumentResource<
+  } = useDocument<
     BaseDocument & {
       title: string;
       user: string;
@@ -99,9 +99,9 @@ function RouteComponent() {
   );
 }
 
-const exampleCode = `import { useDocumentResource } from 'frappe-straw';
+const exampleCode = `import { useDocument } from 'frappe-straw';
 
-const { useSubmit, useCancel } = useDocumentResource(
+const { useSubmit, useCancel } = useDocument(
   'Straw Task',
   'Task1',
 );

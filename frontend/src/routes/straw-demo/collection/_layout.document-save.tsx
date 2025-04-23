@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { TextEditor } from '@/components/ui/text-editor';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { useDocumentResource } from 'frappe-straw';
+import { useDocument } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 import { ArrowRightIcon } from 'lucide-react';
 
@@ -18,7 +18,7 @@ export const Route = createFileRoute(
 });
 
 function RouteComponent() {
-  const { data, error, useTimeAgo, useSave } = useDocumentResource<
+  const { data, error, useTimeAgo, useSave } = useDocument<
     BaseDocument & {
       title: string;
       user: string;
@@ -60,9 +60,9 @@ function RouteComponent() {
   );
 }
 
-const exampleCode = `import { useDocumentResource } from 'frappe-straw';
+const exampleCode = `import { useDocument } from 'frappe-straw';
 
-const { useSave } = useDocumentResource(
+const { useSave } = useDocument(
   'Straw Task',
   'Task1',
 );

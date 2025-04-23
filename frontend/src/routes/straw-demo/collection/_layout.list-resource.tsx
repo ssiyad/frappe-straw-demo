@@ -14,7 +14,7 @@ import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { useDocumentListResource } from 'frappe-straw';
+import { useDocumentList } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 import { ArrowRightIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -70,7 +70,7 @@ function RouteComponent() {
 
   const fields = form.watch('fields');
   const limit = form.watch('limit')[0];
-  const { data, error, useCount } = useDocumentListResource<BaseDocument>({
+  const { data, error, useCount } = useDocumentList<BaseDocument>({
     doctype: form.watch('doctype'),
     fields: Object.keys(fields).filter((f) => fields[f]),
     limit,
@@ -167,10 +167,10 @@ function RouteComponent() {
   );
 }
 
-const exampleCode = `import { useListResource } from 'frappe-straw';
+const exampleCode = `import { useList } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 
-const { data, error, loading, useCount, refresh } = useListResource<BaseDocument>({
+const { data, error, loading, useCount, refresh } = useList<BaseDocument>({
   doctype: 'Report',
   fields: ['name', 'report_type', 'ref_doctype', 'letter_head'],
   limit: 10,

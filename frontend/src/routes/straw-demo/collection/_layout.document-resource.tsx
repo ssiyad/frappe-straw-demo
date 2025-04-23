@@ -18,7 +18,7 @@ import {
 import { cn } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { useDocumentResource, useListResource } from 'frappe-straw';
+import { useDocument, useList } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 import { ArrowRightIcon, Loader2Icon } from 'lucide-react';
 import { useEffect } from 'react';
@@ -53,21 +53,21 @@ function RouteComponent() {
     },
   });
 
-  const { data: doctypes = [] } = useListResource<{
+  const { data: doctypes = [] } = useList<{
     name: string;
   }>({
     doctype: 'DocType',
     limit: 100,
   });
 
-  const { data: docnames = [], refresh: refreshDocNames } = useListResource<{
+  const { data: docnames = [], refresh: refreshDocNames } = useList<{
     name: string;
   }>({
     doctype: form.watch('doctype'),
     limit: 100,
   });
 
-  const { data, error, loading, refresh } = useDocumentResource<BaseDocument>(
+  const { data, error, loading, refresh } = useDocument<BaseDocument>(
     form.watch('doctype'),
     form.watch('docname'),
   );
@@ -163,10 +163,10 @@ function RouteComponent() {
   );
 }
 
-const exampleCode = `import { useDocumentResource } from 'frappe-straw';
+const exampleCode = `import { useDocument } from 'frappe-straw';
 import { BaseDocument } from 'frappe-straw/types';
 
-const { data, error, loading, refresh } = useDocumentResource<BaseDocument>(
+const { data, error, loading, refresh } = useDocument<BaseDocument>(
   'Role',
   'Guest',
   {
